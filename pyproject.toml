@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kmax"
+version = "2.0.0"
+description = "KMAX - a modular, dependency-light network and system reconnaissance toolkit for Kali Linux"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "KMAX contributors" }]
+keywords = ["security", "kali", "recon", "port-scanner", "dns", "tls", "cli"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Networking",
+]
+# No runtime dependencies on purpose: KMAX runs on a bare Kali install.
+dependencies = []
+
+[project.optional-dependencies]
+# Optional accelerators. KMAX detects and uses them, but never requires them.
+extras = ["dnspython>=2.4.0"]
+dev = ["pytest>=7.0", "build>=1.0"]
+
+[project.scripts]
+kmax = "kmax.cli:main"
+
+[project.urls]
+Homepage = "https://example.invalid/kmax"
+Documentation = "https://example.invalid/kmax/readme"
+
+[tool.setuptools]
+packages = ["kmax", "kmax.core", "kmax.modules"]
+
+[tool.setuptools.package-data]
+kmax = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

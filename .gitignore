@@ -1,0 +1,26 @@
+# Byte-compiled / build artefacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Scan output & reports (never commit engagement data)
+*.html
+!webpages/*.html
+*.json
+!package.json
+reports/
+scans/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
