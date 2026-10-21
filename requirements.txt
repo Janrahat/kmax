@@ -1,0 +1,23 @@
+# KMAX runtime requirements
+#
+# KMAX is pure Python 3 standard library. There is nothing to install here for
+# the tool itself to work on Kali Linux - this file exists so that
+# `pip install -r requirements.txt` succeeds and so deployment tooling has a
+# manifest to read.
+#
+# Optional, detected automatically when present:
+#   dnspython  - richer DNS parsing in `kmax dns` (falls back to the built-in client)
+#   pytest     - only needed to run the test suite in tests/
+#
+# System helpers (NOT pip packages) that enrich checks when installed:
+#   nmap       - `kmax scan --nmap` host discovery
+#   dnsutils   - `dig`, needed for the AXFR (zone transfer) test
+#   openssl    - extra certificate detail in `kmax web`
+#   iproute2 / iputils-ping - interface facts and ICMP sweeps
+#
+# On Debian/Kali:
+#   sudo apt install nmap dnsutils openssl iproute2 iputils-ping
+#
+# --- optional Python extras (commented out by default) ---
+# dnspython>=2.4.0
+# pytest>=7.0
